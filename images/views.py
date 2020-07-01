@@ -1,6 +1,10 @@
-from django.http import HttpResponse
-from django.shortcuts import render
 
+from django.contrib.auth.models import User
+from rest_framework import routers, viewsets
+from . import serializers
 
-def index(request):
-    return HttpResponse("First Image")
+# ViewSets define the view behavior.
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = serializers.UserSerializer
+
