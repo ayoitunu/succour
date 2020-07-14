@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from rest_framework import routers, viewsets
+from rest_framework import viewsets
 from . import serializers, models
 
 
@@ -14,13 +14,5 @@ class DesignerViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.DesignerSerializer
 
 
-class CategoryViewSet(viewsets.ModelViewSet):
-    queryset = models.Category.objects.all()
-    serializer_class = serializers.CategorySerializer
-
-
-class PostViewSet(viewsets.ModelViewSet):
-    queryset = models.Post.objects.all()
-    serializer_class = serializers.PostSerializer
 
 

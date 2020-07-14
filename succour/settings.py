@@ -41,7 +41,11 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
 
-    'images.apps.ImagesConfig',
+    # project apps
+    'posts',
+    'designers',
+
+    # the auth apps
     'rest_auth',
 
     'django.contrib.sites',
@@ -50,6 +54,7 @@ INSTALLED_APPS = [
     'rest_auth.registration'
 ]
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 SITE_ID = 1
 
 MIDDLEWARE = [
@@ -131,3 +136,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATICFILES_DIRS = []
+
+MEDIA_ROOT = os.path.join(STATIC_ROOT, 'media')
+MEDIA_URL = '/media/'
